@@ -1,0 +1,10 @@
+tensorflow
+efficientnet
+tensorflow_addons
+xplique
+vit_keras
+numpy
+scikit-image
+matplotlib
+scipy
+opencv-python
