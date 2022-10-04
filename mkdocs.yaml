@@ -1,0 +1,63 @@
+site_name: Harmonization
+
+google_analytics:
+  - UA-132343476-2
+  - auto
+
+nav:
+  - Home: index.md
+  - Training: training.md
+  - Evaluation: evaluation.md
+  - Results: results.md
+  - Models: models.md
+
+theme:
+  name: "material"
+  logo: assets/harmonization_icon.png
+  favicon: assets/harmonization_icon.png
+  palette:
+    - scheme: default
+      primary: dark
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - numkdoc
+  - search
+
+markdown_extensions:
+  - footnotes
+  - extra
+  - admonition
+  - pymdownx.arithmatex
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - codehilite
+  - toc:
+      permalink: true
+      toc_depth: 1-2
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+extra_css:
+  - css/custom.css
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js
+  - js/custom.js
+
+repo_name: "serre-lab/harmonization"
+repo_url: "https://github.com/serre-lab/harmonization"
