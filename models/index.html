@@ -353,19 +353,20 @@ You can easily download the weights of each models here:</p>
 </ul>
 <p>In order to load them easily, we have set up utilities in the github repository.
 For example, to load the model lives harmonized:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">harmonization.models</span> <span class="kn">import</span> <span class="p">(</span><span class="n">load_vit</span><span class="p">,</span> <span class="n">load_resnet50</span><span class="p">,</span>
-                                  <span class="n">load_vgg16</span><span class="p">,</span> <span class="n">load_efficientnet</span><span class="p">,</span>
-                                  <span class="n">preprocess</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">harmonization.models</span> <span class="kn">import</span> <span class="p">(</span><span class="n">load_ViT_B16</span><span class="p">,</span> <span class="n">load_ResNet50</span><span class="p">,</span>
+                                  <span class="n">load_VGG16</span><span class="p">,</span> <span class="n">load_EfficientNetB0</span><span class="p">,</span>
+                                  <span class="n">preprocess_input</span><span class="p">)</span>
 
-<span class="n">vit_harmonized</span> <span class="o">=</span> <span class="n">load_vit</span><span class="p">()</span>
-<span class="n">vgg_harmonized</span> <span class="o">=</span> <span class="n">load_vgg16</span><span class="p">()</span>
-<span class="n">resnet_harmonized</span> <span class="o">=</span> <span class="n">load_resnet50</span><span class="p">()</span>
-<span class="n">efficient_harmonized</span> <span class="o">=</span> <span class="n">load_efficientnet</span><span class="p">()</span>
+<span class="n">vit_harmonized</span> <span class="o">=</span> <span class="n">load_ViT_B16</span><span class="p">()</span>
+<span class="n">vgg_harmonized</span> <span class="o">=</span> <span class="n">load_VGG16</span><span class="p">()</span>
+<span class="n">resnet_harmonized</span> <span class="o">=</span> <span class="n">load_ResNet50</span><span class="p">()</span>
+<span class="n">efficient_harmonized</span> <span class="o">=</span> <span class="n">load_EfficientNetB0</span><span class="p">()</span>
 
 <span class="c1"># load images (in [0, 255])</span>
 <span class="c1"># ...</span>
 
-<span class="n">predictions</span> <span class="o">=</span> <span class="n">vit_harmonized</span><span class="p">(</span><span class="n">preprocess</span><span class="p">(</span><span class="n">images</span><span class="p">))</span>
+<span class="n">images</span> <span class="o">=</span> <span class="n">preprocess_input</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">vit_harmonized</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
 </code></pre></div>
 
 
