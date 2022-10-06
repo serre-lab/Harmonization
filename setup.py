@@ -8,7 +8,7 @@ with open('requirements.txt', encoding="utf-8") as requirements_file:
 
 setup(
     name="Harmonization",
-    version="0.0.1",
+    version="0.0.2",
     description="Aligning Human & Machine vision",
     long_description=README,
     long_description_content_type="text/markdown",
