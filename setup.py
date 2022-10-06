@@ -1,7 +1,10 @@
 from setuptools import setup, find_packages
 
-with open("README.md", encoding="utf-8") as fh:
-    README = fh.read()
+with open("README.md", encoding="utf-8") as readme_file:
+    README = readme_file.read()
+
+with open('requirements.txt', encoding="utf-8") as requirements_file:
+    REQUIREMENTS = requirements_file.read().splitlines()
 
 setup(
     name="Harmonization",
@@ -12,8 +15,7 @@ setup(
     author="Thomas FEL",
     author_email="thomas_fel@brown.edu",
     license="MIT",
-    install_requires=['tensorflow>=2.1.0', 'numpy', 'scikit-learn', 'scikit-image',
-                      'matplotlib', 'scipy', 'opencv-python'],
+    install_requires=REQUIREMENTS,
     extras_require={
         "tests": ["pytest", "pylint"],
         "docs": ["mkdocs", "mkdocs-material", "numkdoc"],
