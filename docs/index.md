@@ -17,7 +17,7 @@
   ·
   <a href="https://serre-lab.github.io/harmonization/models">Models zoo</a>
   ·
-  <a href="todo">Evaluate your model</a>
+  <a href="todo">Tutorials</a>
 </p>
 
 ## Paper summary
