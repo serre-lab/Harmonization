@@ -3,6 +3,7 @@ Module related to the click-me dataset
 """
 
 import tensorflow as tf
+import numpy as np
 from xplique.attributions import Saliency
 
 from ..models import preprocess_input
@@ -10,10 +11,12 @@ from .utils import gaussian_kernel, gaussian_blur
 from .metrics import spearman_correlation, dice, intersection_over_union
 
 
+HUMAN_SPEARMAN_CEILING = 0.6575315343478081
+
 CLICKME_BASE_URL = 'https://storage.googleapis.com/serrelab/prj_harmonization/dataset/click-me'
 NB_VAL_SHARDS = 17
-AUTO = tf.data.AUTOTUNE
 
+AUTO = tf.data.AUTOTUNE
 GAUSSIAN_KERNEL = tf.cast(gaussian_kernel(), tf.float32)
 FEATURE_DESCRIPTION = {
       "image"       : tf.io.FixedLenFeature([], tf.string, default_value=''),
@@ -104,7 +107,8 @@ def load_clickme_val(shards_paths = None, batch_size = 64):
     return dataset
 
 
-def evaluate_tf_model(model, clickme_val_dataset = None, preprocess_inputs = preprocess_input):
+def evaluate_tf_model(model, explainer = None, clickme_val_dataset = None,
+                      preprocess_inputs = preprocess_input):
     """
     Evaluates a model on the Click-me validation set.
 
@@ -112,6 +116,10 @@ def evaluate_tf_model(model, clickme_val_dataset = None, preprocess_inputs = pre
     ----------
     model : tf.keras.Model
         The model to evaluate.
+    explainer : callable, optional
+        The explainer to use, by default use Xplique (tensorflow) Saliency maps.
+        To define your own explainer, the function must take a batch of images and labels
+        and return a saliency maps for each inputs, e.g. `f(images, labels) -> saliency_maps`.
     preprocess_inputs : function, optional
         The preprocessing function to apply to the inputs, by default `preprocess_input`
     batch_size : int, optional
@@ -128,7 +136,9 @@ def evaluate_tf_model(model, clickme_val_dataset = None, preprocess_inputs = pre
     clickme_val_dataset = clickme_val_dataset.map(lambda x, y, z: (preprocess_inputs(x), y, z),
                                                    num_parallel_calls=AUTO)
 
-    explainer = Saliency(model)
+    if explainer is None:
+        # default to Xplique (tensorflow) explainer
+        explainer = Saliency(model)
 
     metrics = {
         'spearman': [],
@@ -153,5 +163,8 @@ def evaluate_tf_model(model, clickme_val_dataset = None, preprocess_inputs = pre
         metrics['spearman'] += list(spearman_batch)
         metrics['dice']     += list(dice_batch)
         metrics['iou']      += list(iou_batch)
+
+    # add the score used in the paper: normalized spearman correlation
+    metrics['alignment_score'] = np.mean(metrics['spearman']) / HUMAN_SPEARMAN_CEILING
 
     return metrics
