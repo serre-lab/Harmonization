@@ -425,7 +425,7 @@
 
 
 <div style="text-align:center" class="latex-font">
-    <h1 style="text-align: center; font-weight: bold; color: inherit; margin-bottom: 0.2em"> Aligning Machine & Human Vision </h1>
+    <h1 style="text-align: center; font-weight: bold; color: inherit; margin-bottom: 0.2em"> Harmonizing the object recognition strategies of deep neural networks with humans </h1>
 
     <span class="author" style="font-weight: bold"> Thomas Fel*, Ivan Felipe Rodriguez*, Drew Linsley*, <br> Thomas Serre </span> <br>
     <span class="affiliations"> Carney Institute for Brain Science, Brown University, Providence, RI 02912 </span> <br>
@@ -446,10 +446,10 @@
 </p>
 
 <h2 id="paper-summary">Paper summary<a class="headerlink" href="#paper-summary" title="Permanent link">&para;</a></h2>
-<p><img src="./assets/big_picture.jpg" width="100%" align="center"></p>
+<p><img src="./assets/big_picture.png" width="100%" align="center"></p>
 <p>The many successes of deep neural networks (DNNs) over the past decade have largely been driven by computational scale rather than insights from biological intelligence. Here, we explore if these trends have also carried concomitant improvements in explaining visual strategies underlying human object recognition. We do this by comparing two related but distinct properties of visual strategies in humans and DNNs: <em>where</em> they believe important visual features are in images and <em>how</em> they use those features to categorize objects. Across 85 different DNNs and three independent datasets measuring human visual strategies on ImageNet, we find a trade-off between DNN top-1 categorization accuracy and their alignment with humans. <em>State-of-the-art</em> DNNs are progressively becoming <em>less aligned</em> with humans. We rectify this growing issue by introducing the harmonization procedure: a general-purpose training routine that aligns DNN and human visual strategies while improving object classification performance.</p>
 <h3 id="aligning-the-gradients">Aligning the Gradients<a class="headerlink" href="#aligning-the-gradients" title="Permanent link">&para;</a></h3>
-<p><img src="./assets/qualitative_figure.jpg" width="100%" align="center"></p>
+<p><img src="./assets/qualitative_figure.png" width="100%" align="center"></p>
 <p>Human and DNNs rely on different features to recognize objects. In contrast, our neural
 harmonizer aligns DNN feature importance with humans. Gradients are smoothed from both humans
 and DNNs with a Gaussian kernel to improve visualization.</p>
@@ -495,7 +495,7 @@ and DNNs with a Gaussian kernel to improve visualization.</p>
 <h2 id="citation">🗞️ Citation<a class="headerlink" href="#citation" title="Permanent link">&para;</a></h2>
 <p>If you use or build on our work as part of your workflow in a scientific publication, please consider citing the <a href="todo">official paper</a>:</p>
 <div class="highlight"><pre><span></span><code>@article{fel2022aligning,
-  title={Aligning deep neural network strategies for object recognition with humans},
+  title={Harmonizing the object recognition strategies of deep neural networks with humans},
   author={Fel, Thomas and Felipe, Ivan and Linsley, Drew and Serre, Thomas},
   journal={Advances in Neural Information Processing Systems (NeurIPS)},
   year={2022}
