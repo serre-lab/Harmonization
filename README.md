@@ -1,5 +1,5 @@
 
-# Aligning Machine & Human Vision
+# Harmonizing the object recognition strategies of deep neural networks with humans
 
 _Thomas Fel*, Ivan Felipe Rodriguez*, Drew Linsley*, Thomas Serre_
 
@@ -23,7 +23,7 @@ The many successes of deep neural networks (DNNs) over the past decade have larg
 
 ### Aligning the Gradients
 
-<img src="docs/assets/qualitative_figure.jpg" width="100%" align="center">
+<img src="docs/assets/qualitative_figure.png" width="100%" align="center">
 
 Human and DNNs rely on different features to recognize objects. In contrast, our neural
 harmonizer aligns DNN feature importance with humans. Gradients are smoothed from both humans
@@ -41,7 +41,7 @@ If you use or build on our work as part of your workflow in a scientific publica
 
 ```
 @article{fel2022aligning,
-  title={Aligning deep neural network strategies for object recognition with humans},
+  title={Harmonizing the object recognition strategies of deep neural networks with humans},
   author={Fel, Thomas and Felipe, Ivan and Linsley, Drew and Serre, Thomas},
   journal={Advances in Neural Information Processing Systems (NeurIPS)},
   year={2022}
