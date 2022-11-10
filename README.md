@@ -4,7 +4,7 @@
 _Thomas Fel*, Ivan Felipe Rodriguez*, Drew Linsley*, Thomas Serre_
 
 <p align="center">
-<a href="todo"><strong>Read the official paper »</strong></a>
+<a href="https://arxiv.org/abs/2211.04533"><strong>Read the official paper »</strong></a>
 <br>
 <a href="https://serre-lab.github.io/harmonization/results">Explore results</a>
 .
