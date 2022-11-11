@@ -37,7 +37,7 @@ The trade-off between DNN performance and alignment with human feature importanc
 
 ## 🗞️ Citation
 
-If you use or build on our work as part of your workflow in a scientific publication, please consider citing the [official paper](todo):
+If you use or build on our work as part of your workflow in a scientific publication, please consider citing the [official paper](https://arxiv.org/abs/2211.04533):
 
 ```
 @article{fel2022aligning,
