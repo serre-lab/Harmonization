@@ -92,6 +92,18 @@ If you use or build on our work as part of your workflow in a scientific publica
   year={2022}
 }
 ```
+
+## Tutorials
+
+**Evaluate your own model (pytorch and tensorflow)**
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Mp0vxUcIsX1QY-_Byo1LU2IRVcqu7gUl) 
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tensorflow_logo.svg/230px-Tensorflow_logo.svg.png" width=35>
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1bttp-hVnV_agJGhwdRRW6yUBbf-eImRN) 
+<img src="https://pytorch.org/assets/images/pytorch-logo.png" width=35>
+
+
 ## 📝 License
 
 The package is released under <a href="https://choosealicense.com/licenses/mit"> MIT license</a>.
