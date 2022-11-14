@@ -12,7 +12,7 @@ _Thomas Fel*, Ivan Felipe Rodriguez*, Drew Linsley*, Thomas Serre_
 .
 <a href="https://serre-lab.github.io/harmonization/models">Models zoo</a>
 .
-<a href="todo">Tutorials</a>
+<a href="https://serre-lab.github.io/Harmonization/evaluation/">Tutorials</a>
 </p>
 
 ## Paper summary
@@ -37,7 +37,7 @@ The trade-off between DNN performance and alignment with human feature importanc
 
 ## 🗞️ Citation
 
-If you use or build on our work as part of your workflow in a scientific publication, please consider citing the [official paper](https://serre-lab.github.io/Harmonization/):
+If you use or build on our work as part of your workflow in a scientific publication, please consider citing the [official paper](https://arxiv.org/abs/2211.04533):
 
 ```
 @article{fel2022aligning,

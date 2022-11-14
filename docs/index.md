@@ -8,16 +8,16 @@
 </div>
 
 <p align="center">
-  <a href="todo"><strong>Read the official paper »</strong></a>
+  <a href="https://arxiv.org/abs/2211.04533"><strong>Read the official paper »</strong></a>
   <br>
   <br>
-  <a href="https://serre-lab.github.io/harmonization/results">Explore results</a>
+  <a href="https://serre-lab.github.io/Harmonization/results">Explore results</a>
   ·
-  <a href="https://github.com/serre-lab/harmonization">Github</a>
+  <a href="https://github.com/serre-lab/Harmonization">Github</a>
   ·
-  <a href="https://serre-lab.github.io/harmonization/models">Models zoo</a>
+  <a href="https://serre-lab.github.io/Harmonization/models/">Models zoo</a>
   ·
-  <a href="todo">Tutorials</a>
+  <a href="https://serre-lab.github.io/Harmonization/evaluation">Tutorials</a>
 </p>
 
 ## Paper summary
@@ -82,7 +82,7 @@ The trade-off between DNN performance and alignment with human feature importanc
 
 ## 🗞️ Citation
 
-If you use or build on our work as part of your workflow in a scientific publication, please consider citing the [official paper](todo):
+If you use or build on our work as part of your workflow in a scientific publication, please consider citing the [official paper](https://arxiv.org/abs/2211.04533):
 
 ```
 @article{fel2022aligning,
