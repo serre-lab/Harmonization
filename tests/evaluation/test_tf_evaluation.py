@@ -1,7 +1,7 @@
 import tensorflow as tf
 import numpy as np
 
-from harmonization.evaluation import evaluate_tf_model, load_clickme_val
+from harmonization.evaluation import evaluate_clickme, load_clickme_val
 from harmonization.evaluation.click_me import CLICKME_BASE_URL
 
 
@@ -19,10 +19,12 @@ def test_evaluate_tf_model():
         tf.keras.layers.InputLayer(input_shape=(224, 224, 3)),
         tf.keras.layers.MaxPooling2D((10, 10), strides=(10, 10)),
         tf.keras.layers.Flatten(),
-        tf.keras.layers.Dense(1000, activation='softmax')
+        tf.keras.layers.Dense(1000, activation='linear')
     ])
 
-    scores = evaluate_tf_model(model, clickme_val_dataset=dataset)
+    def identity(x):
+        return x
+    scores = evaluate_clickme(model, clickme_val_dataset=dataset, preprocess_inputs=identity, explainer=None)
 
     assert 'spearman' in scores
     assert 'dice' in scores
