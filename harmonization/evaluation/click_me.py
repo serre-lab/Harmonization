@@ -6,7 +6,6 @@ import tensorflow as tf
 import numpy as np
 from xplique.attributions import Saliency
 
-from ..models import preprocess_input
 from .utils import gaussian_kernel, gaussian_blur
 from .metrics import spearman_correlation, dice, intersection_over_union
 
@@ -107,8 +106,8 @@ def load_clickme_val(shards_paths = None, batch_size = 64):
     return dataset
 
 
-def evaluate_tf_model(model, explainer = None, clickme_val_dataset = None,
-                      preprocess_inputs = preprocess_input):
+def evaluate_clickme(model, explainer = None, clickme_val_dataset = None,
+                     preprocess_inputs = None):
     """
     Evaluates a model on the Click-me validation set.
 
@@ -121,7 +120,7 @@ def evaluate_tf_model(model, explainer = None, clickme_val_dataset = None,
         To define your own explainer, the function must take a batch of images and labels
         and return a saliency maps for each inputs, e.g. `f(images, labels) -> saliency_maps`.
     preprocess_inputs : function, optional
-        The preprocessing function to apply to the inputs, by default `preprocess_input`
+        The preprocessing function to apply to the inputs.
     batch_size : int, optional
         Batch size, by default 64
 
@@ -133,12 +132,21 @@ def evaluate_tf_model(model, explainer = None, clickme_val_dataset = None,
     if clickme_val_dataset is None:
         clickme_val_dataset = load_clickme_val()
 
+    if preprocess_inputs is None:
+        # default to identity
+        preprocess_inputs = lambda x : x
+
     clickme_val_dataset = clickme_val_dataset.map(lambda x, y, z: (preprocess_inputs(x), y, z),
                                                    num_parallel_calls=AUTO)
 
     if explainer is None:
-        # default to Xplique (tensorflow) explainer
-        explainer = Saliency(model)
+        try:
+            # default to Xplique (tensorflow) explainer
+            # tfel: use saliency maps (max over channels of absolute values)
+            explainer = Saliency(model)
+        except Exception as explainer_error:
+            raise ValueError("No explainer provided and Xplique (tensorflow)" \
+                             "failed to load.") from explainer_error
 
     metrics = {
         'spearman': [],
@@ -148,7 +156,6 @@ def evaluate_tf_model(model, explainer = None, clickme_val_dataset = None,
 
     for images_batch, heatmaps_batch, label_batch in clickme_val_dataset:
 
-        # tfel: use xplique saliency maps (max over channels of absolute values)
         saliency_maps = explainer(images_batch, label_batch)
 
         if len(saliency_maps.shape) == 4:
