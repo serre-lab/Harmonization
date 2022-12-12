@@ -5,14 +5,14 @@
     <a href="#">
         <img src="https://img.shields.io/badge/Python-3.6, 3.7, 3.8-efefef">
     </a>
-    <a href="https://github.com/serre-lab/Harmonization/actions/workflows/python-lints.yml">
-        <img alt="PyLint" src="https://github.com/serre-lab/Harmonization/actions/workflows/python-lints.yml/badge.svg">
+    <a href="https://github.com/serre-lab/Harmonization/actions/workflows/python-lint.yml">
+        <img alt="PyLint" src="https://github.com/serre-lab/Harmonization/actions/workflows/python-lint.yml/badge.svg">
     </a>
     <a href="https://github.com/serre-lab/Harmonization/actions/workflows/python-tests.yml">
         <img alt="Tox" src="https://github.com/serre-lab/Harmonization/actions/workflows/python-tests.yml/badge.svg">
     </a>
-    <a href="https://github.com/serre-lab/Harmonization/actions/workflows/python-publish.yml">
-        <img alt="Pypi" src="https://github.com/serre-lab/Harmonization/actions/workflows/python-publish.yml/badge.svg">
+    <a href="https://github.com/serre-lab/Harmonization/actions/workflows/python-pip.yml">
+        <img alt="Pypi" src="https://github.com/serre-lab/Harmonization/actions/workflows/python-pip.yml/badge.svg">
     </a>
     <a href="https://pepy.tech/project/harmonization">
         <img alt="Pepy" src="https://pepy.tech/badge/harmonization">
