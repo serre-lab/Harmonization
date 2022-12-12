@@ -341,7 +341,8 @@
 <p><img src="https://pytorch.org/assets/images/pytorch-logo.png" width=35>
 <sub> <a href="https://colab.research.google.com/drive/1bttp-hVnV_agJGhwdRRW6yUBbf-eImRN"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a> </sub></p>
 <p>Or, you can simply use the api directly as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">harmonization.evaluation</span> <span class="kn">import</span> <span class="n">load_clickme_val</span><span class="p">,</span> <span class="n">evaluate_clickme</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">harmonization.common</span> <span class="kn">import</span> <span class="n">load_clickme_val</span>
+<span class="kn">from</span> <span class="nn">harmonization.evaluation</span> <span class="kn">import</span> <span class="n">evaluate_clickme</span>
 
 <span class="n">clickme_dataset</span> <span class="o">=</span> <span class="n">load_clickme_val</span><span class="p">(</span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span><span class="p">)</span>
 

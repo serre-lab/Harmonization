@@ -65,6 +65,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#loading-clickme-training-set" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -246,9 +251,45 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Training
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Training
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#loading-clickme-training-set" class="md-nav__link">
+    Loading ClickMe training set
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-harmonization-loss" class="md-nav__link">
+    Using the Harmonization loss
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -317,6 +358,28 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#loading-clickme-training-set" class="md-nav__link">
+    Loading ClickMe training set
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-harmonization-loss" class="md-nav__link">
+    Using the Harmonization loss
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -335,7 +398,44 @@
 
   <h1>Training</h1>
 
+<p>In order to train your own harmonized model, we have made available a way to simply load the ClickMe training set, as well as the harmonization loss we have used in the paper.</p>
+<h2 id="loading-clickme-training-set">Loading ClickMe training set<a class="headerlink" href="#loading-clickme-training-set" title="Permanent link">&para;</a></h2>
+<p>First, you will need to load the training dataset:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">harmonization.common</span> <span class="kn">import</span> <span class="n">load_clickme_train</span>
 
+<span class="n">clickme_ds</span> <span class="o">=</span> <span class="n">load_clickme_train</span><span class="p">(</span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">images</span><span class="p">,</span> <span class="n">heatmaps</span><span class="p">,</span> <span class="n">labels</span> <span class="ow">in</span> <span class="n">clickme_ds</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">images</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># (128, 224, 224, 3)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">heatmaps</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># (128, 224, 224, 1)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># (128, 1000)</span>
+</code></pre></div>
+<p>Note that, if you already have the shards locally, you can also load the dataset using the <code>load_clickme</code> function:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">harmonization.common</span> <span class="kn">import</span> <span class="n">load_clickme</span>
+
+<span class="n">clickme_ds</span> <span class="o">=</span> <span class="n">load_clickme_train</span><span class="p">(</span><span class="n">shards_paths</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dataset/train_clickme_0&#39;</span><span class="p">,</span>
+                                                <span class="s1">&#39;dataset/train_clickme_1&#39;</span>
+                                                <span class="o">...</span>
+                                               <span class="p">],</span> <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="using-the-harmonization-loss">Using the Harmonization loss<a class="headerlink" href="#using-the-harmonization-loss" title="Permanent link">&para;</a></h2>
+<p>Now that we know how to load the training set, we just need the harmonization loss:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">harmonizer_loss</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">images</span><span class="p">,</span> <span class="n">tokens</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">true_heatmaps</span><span class="p">,</span>
+                    <span class="n">cross_entropy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">CategoricalCrossentropy</span><span class="p">(),</span>
+                    <span class="n">lambda_weights</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span> <span class="n">lambda_harmonization</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+                    <span class="o">...</span>
+</code></pre></div>
+<p>To use the loss, simply call the function with your model, the images / labels and heatmaps for ClickMe:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">harmonization.training</span> <span class="kn">import</span> <span class="n">harmonizer_loss</span>
+
+<span class="o">...</span> <span class="c1"># loading dataset</span>
+
+
+<span class="k">for</span> <span class="n">images</span><span class="p">,</span> <span class="n">heatmaps</span><span class="p">,</span> <span class="n">labels</span> <span class="ow">in</span> <span class="n">clickme_ds</span><span class="p">:</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">images</span><span class="p">))</span> <span class="c1"># tokens are flags to indicate if the image have an associated heatmap</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">harmonizer_loss</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">images</span><span class="p">,</span> <span class="n">tokens</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">heatmaps</span><span class="p">)</span>
+</code></pre></div>
+<p>For example, if we decide to mix the ClickMe dataset with ImageNet, we may not have heatmaps for each images, in that case we can use the <code>tokens</code> flag parameters to designate when an heatmaps is provided (<code>1</code> means heatmaps provided).</p>
 
 
 
