@@ -1,8 +1,8 @@
 import tensorflow as tf
 import numpy as np
 
-from harmonization.evaluation import evaluate_clickme, load_clickme_val
-from harmonization.evaluation.click_me import CLICKME_BASE_URL
+from harmonization.evaluation import evaluate_clickme
+from harmonization.common.clickme_dataset import load_clickme, CLICKME_BASE_URL
 
 
 def test_evaluate_tf_model():
@@ -13,7 +13,7 @@ def test_evaluate_tf_model():
 
     single_shard = tf.keras.utils.get_file(f"clickme_val_17", f"{CLICKME_BASE_URL}/val/val-17.tfrecords",
                                            cache_subdir="datasets/click-me")
-    dataset = load_clickme_val(shards_paths=[single_shard], batch_size = batch_size)
+    dataset = load_clickme(shards_paths=[single_shard], batch_size = batch_size)
 
     model = tf.keras.Sequential([
         tf.keras.layers.InputLayer(input_shape=(224, 224, 3)),
@@ -24,6 +24,7 @@ def test_evaluate_tf_model():
 
     def identity(x):
         return x
+
     scores = evaluate_clickme(model, clickme_val_dataset=dataset, preprocess_inputs=identity, explainer=None)
 
     assert 'spearman' in scores
@@ -46,4 +47,3 @@ def test_evaluate_tf_model():
     assert np.isnan(scores['spearman']).sum() == 0
     assert np.isnan(scores['dice']).sum() == 0
     assert np.isnan(scores['iou']).sum() == 0
-

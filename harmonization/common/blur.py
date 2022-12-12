@@ -1,5 +1,5 @@
 """
-Utils for the evaluation procedure
+Gaussian kernel & associated Gaussian blur utils
 """
 
 import tensorflow as tf
