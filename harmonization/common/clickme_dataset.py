@@ -132,11 +132,10 @@ def load_clickme_val(batch_size = 64):
         Each element contains a batch of (images, heatmaps, labels).
     """
 
-    if shards_paths is None:
-        shards_paths = [
-            tf.keras.utils.get_file(f"clickme_val_{i}",
-                                    f"{CLICKME_BASE_URL}/val/val-{i}.tfrecords",
-                                    cache_subdir="datasets/click-me") for i in range(NB_VAL_SHARDS)
-        ]
+    shards_paths = [
+        tf.keras.utils.get_file(f"clickme_val_{i}",
+                                f"{CLICKME_BASE_URL}/val/val-{i}.tfrecords",
+                                cache_subdir="datasets/click-me") for i in range(NB_VAL_SHARDS)
+    ]
 
     return load_clickme(shards_paths, batch_size)
