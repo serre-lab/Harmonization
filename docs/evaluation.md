@@ -15,7 +15,8 @@ In order to evaluate your own model on the benchmark, we have made available two
 Or, you can simply use the api directly as follows:
 
 ```python
-from harmonization.evaluation import load_clickme_val, evaluate_clickme
+from harmonization.common import load_clickme_val
+from harmonization.evaluation import evaluate_clickme
 
 clickme_dataset = load_clickme_val(batch_size = 128)
 

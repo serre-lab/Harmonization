@@ -6,10 +6,8 @@ import numpy as np
 import tensorflow as tf
 
 
-def _downsample(image,
-                kernel):
-    return tf.nn.conv2d(
-        input=image, filters=kernel, strides=[1, 2, 2, 1], padding="SAME")
+def _downsample(image, kernel):
+    return tf.nn.conv2d(input=image, filters=kernel, strides=[1, 2, 2, 1], padding="SAME")
 
 
 def _binomial_kernel(num_channels):
