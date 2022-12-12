@@ -1,7 +1,7 @@
 
 # Harmonizing the object recognition strategies of deep neural networks with humans
 
-<div align="center">
+<div>
     <a href="#">
         <img src="https://img.shields.io/badge/Python-3.6, 3.7, 3.8-efefef">
     </a>
