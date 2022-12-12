@@ -1,6 +1,29 @@
 
 # Harmonizing the object recognition strategies of deep neural networks with humans
 
+<div align="center">
+    <a href="#">
+        <img src="https://img.shields.io/badge/Python-3.6, 3.7, 3.8-efefef">
+    </a>
+    <a href="https://github.com/serre-lab/Harmonization/actions/workflows/python-lints.yml">
+        <img alt="PyLint" src="https://github.com/serre-lab/Harmonization/actions/workflows/python-lints.yml/badge.svg">
+    </a>
+    <a href="https://github.com/serre-lab/Harmonization/actions/workflows/python-tests.yml">
+        <img alt="Tox" src="https://github.com/serre-lab/Harmonization/actions/workflows/python-tests.yml/badge.svg">
+    </a>
+    <a href="https://github.com/serre-lab/Harmonization/actions/workflows/python-publish.yml">
+        <img alt="Pypi" src="https://github.com/serre-lab/Harmonization/actions/workflows/python-publish.yml/badge.svg">
+    </a>
+    <a href="https://pepy.tech/project/harmonization">
+        <img alt="Pepy" src="https://pepy.tech/badge/harmonization">
+    </a>
+    <a href="#">
+        <img src="https://img.shields.io/badge/License-MIT-efefef">
+    </a>
+</div>
+
+<br>
+
 _Thomas Fel*, Ivan Felipe Rodriguez*, Drew Linsley*, Thomas Serre_
 
 <p align="center">
