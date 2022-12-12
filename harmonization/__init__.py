@@ -6,7 +6,7 @@ The goal of this project is to provide a simple interface to align the latest
 vision models with human vision.
 """
 
-__version__ = '0.0.4'
+__version__ = '0.0.5'
 
 from . import evaluation
 from . import training
