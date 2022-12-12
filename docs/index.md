@@ -18,6 +18,8 @@
   <a href="https://serre-lab.github.io/Harmonization/models/">Models zoo</a>
   ·
   <a href="https://serre-lab.github.io/Harmonization/evaluation">Tutorials</a>
+  ·
+  <a href="https://arxiv.org/abs/1805.08819">Click-me paper</a>
 </p>
 
 ## Paper summary
@@ -90,6 +92,17 @@ If you use or build on our work as part of your workflow in a scientific publica
   author={Fel, Thomas and Felipe, Ivan and Linsley, Drew and Serre, Thomas},
   journal={Advances in Neural Information Processing Systems (NeurIPS)},
   year={2022}
+}
+```
+
+Moreover, this paper relies heavily on previous work from the Lab, notably [Learning What and Where to Attend](https://arxiv.org/abs/1805.08819) where the ambitious ClickMe dataset was collected.
+
+```
+@article{linsley2018learning,
+  title={Learning what and where to attend},
+  author={Linsley, Drew and Shiebler, Dan and Eberhardt, Sven and Serre, Thomas},
+  journal={International Conference on Learning Representations (ICLR)},
+  year={2019}
 }
 ```
 
