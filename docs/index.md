@@ -7,6 +7,21 @@
     <span class="mono"> {thomas_fel,ivan_felipe_rodriguez,drew_linsley,thomas_serre}@brown.edu </span>
 </div>
 
+<p align="center">
+  <a href="https://arxiv.org/abs/2211.04533"><strong>Read the official paper »</strong></a>
+  <br>
+  <br>
+  <a href="https://serre-lab.github.io/Harmonization/results">Explore results</a>
+  ·
+  <a href="https://github.com/serre-lab/Harmonization">Github</a>
+  ·
+  <a href="https://serre-lab.github.io/Harmonization/models/">Models zoo</a>
+  ·
+  <a href="https://serre-lab.github.io/Harmonization/evaluation">Tutorials</a>
+  ·
+  <a href="https://arxiv.org/abs/1805.08819">Click-me paper</a>
+</p>
+
 <div>
     <a href="#">
         <img src="https://img.shields.io/badge/Python-3.6, 3.7, 3.8-efefef">
@@ -28,20 +43,6 @@
     </a>
 </div>
 
-<p align="center">
-  <a href="https://arxiv.org/abs/2211.04533"><strong>Read the official paper »</strong></a>
-  <br>
-  <br>
-  <a href="https://serre-lab.github.io/Harmonization/results">Explore results</a>
-  ·
-  <a href="https://github.com/serre-lab/Harmonization">Github</a>
-  ·
-  <a href="https://serre-lab.github.io/Harmonization/models/">Models zoo</a>
-  ·
-  <a href="https://serre-lab.github.io/Harmonization/evaluation">Tutorials</a>
-  ·
-  <a href="https://arxiv.org/abs/1805.08819">Click-me paper</a>
-</p>
 
 ## Paper summary
 
