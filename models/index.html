@@ -350,17 +350,25 @@ You can easily download the weights of each models here:</p>
 <li><strong>VGG16 Harmonized</strong>: <a href="https://storage.googleapis.com/serrelab/prj_harmonization/models/vgg16_harmonized.h5">serrelab/prj_harmonization/vgg16_harmonized</a></li>
 <li><strong>ResNet50V2 Harmonized</strong>: <a href="https://storage.googleapis.com/serrelab/prj_harmonization/models/resnet50v2_harmonized.h5">serrelab/prj_harmonization/resnet50v2_harmonized</a></li>
 <li><strong>EfficientNet B0</strong>: <a href="https://storage.googleapis.com/serrelab/prj_harmonization/models/efficientnetB0_harmonized.h5">serrelab/prj_harmonization/efficientnet_b0</a></li>
+<li><strong>LeViT</strong>: <a href="https://storage.googleapis.com/serrelab/prj_harmonization/models/levit_small_harmonized.h5">serrelab/prj_harmonization/levit</a></li>
+<li><strong>ConvNeXT</strong>: <a href="https://storage.googleapis.com/serrelab/prj_harmonization/models/convnext_tiny_harmonized.h5">serrelab/prj_harmonization/convnext</a></li>
+<li><strong>MaxViT</strong>: <a href="https://storage.googleapis.com/serrelab/prj_harmonization/models/maxvit_tiny_harmonized.h5">serrelab/prj_harmonization/maxvit</a></li>
 </ul>
 <p>In order to load them easily, we have set up utilities in the github repository.
 For example, to load the model lives harmonized:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">harmonization.models</span> <span class="kn">import</span> <span class="p">(</span><span class="n">load_ViT_B16</span><span class="p">,</span> <span class="n">load_ResNet50</span><span class="p">,</span>
                                   <span class="n">load_VGG16</span><span class="p">,</span> <span class="n">load_EfficientNetB0</span><span class="p">,</span>
+                                  <span class="n">load_tiny_ConvNeXT</span><span class="p">,</span> <span class="n">load_tiny_MaxViT</span><span class="p">,</span>
+                                  <span class="n">load_LeViT_small</span><span class="p">,</span>
                                   <span class="n">preprocess_input</span><span class="p">)</span>
 
 <span class="n">vit_harmonized</span> <span class="o">=</span> <span class="n">load_ViT_B16</span><span class="p">()</span>
 <span class="n">vgg_harmonized</span> <span class="o">=</span> <span class="n">load_VGG16</span><span class="p">()</span>
 <span class="n">resnet_harmonized</span> <span class="o">=</span> <span class="n">load_ResNet50</span><span class="p">()</span>
 <span class="n">efficient_harmonized</span> <span class="o">=</span> <span class="n">load_EfficientNetB0</span><span class="p">()</span>
+<span class="n">convnext_harmonized</span> <span class="o">=</span> <span class="n">load_tiny_ConvNeXT</span><span class="p">()</span>
+<span class="n">maxvit_harmonized</span> <span class="o">=</span> <span class="n">load_tiny_MaxViT</span><span class="p">()</span>
+<span class="n">levit_harmonized</span> <span class="o">=</span> <span class="n">load_LeViT_small</span><span class="p">()</span>
 
 <span class="c1"># load images (in [0, 255])</span>
 <span class="c1"># ...</span>
