@@ -8,4 +8,4 @@ scikit-image
 matplotlib
 scipy
 opencv-python
-keras-cv-attention-models
+keras-cv-attention-models>=1.3.5
