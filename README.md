@@ -90,6 +90,10 @@ Moreover, this paper relies heavily on previous work from the Lab, notably [Lear
 **Evaluate your own model (pytorch and tensorflow)**
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Mp0vxUcIsX1QY-_Byo1LU2IRVcqu7gUl) 
+
+[![Psychophysics benchmark](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Ec6WEtDP2BOueEBmlHAkHjjZgIvm0RN_) 
+
+
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tensorflow_logo.svg/230px-Tensorflow_logo.svg.png" width=35>
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1bttp-hVnV_agJGhwdRRW6yUBbf-eImRN) 
 <img src="https://pytorch.org/assets/images/pytorch-logo.png" width=35>
