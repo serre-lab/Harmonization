@@ -9,3 +9,5 @@ matplotlib
 scipy
 opencv-python
 keras-cv-attention-models
+pandas
+scikit-learn
