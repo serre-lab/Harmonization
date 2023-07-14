@@ -1,9 +1,9 @@
-from PIL import Image 
+from PIL import Image
 import numpy as np
 import pandas as pd
 from sklearn.metrics import accuracy_score,mean_squared_error
-from common.clickme_dataset import get_stimuli_paths,get_human_data
-from common.utils import im_crop_center, get_synset
+from ..common.clickme_dataset import get_stimuli_paths,get_human_data
+from ..common.utils import im_crop_center, get_synset
 
 def run_images(model,preprocess,model_name=''):
     """
@@ -33,7 +33,7 @@ def run_images(model,preprocess,model_name=''):
         img = Image.open(f)
         img = im_crop_center(img,224,224)
         img = np.array(img)
-        img2 = np.stack((img,)*3, axis=-1)
+        #img2 = np.stack((img,)*3, axis=-1)
        
         img = np.stack((img,)*3, axis=-1)
         img = preprocess(img)

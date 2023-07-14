@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 import os
 import glob 
-from utils import get_synset
+from .utils import get_synset
 
 from .blur import gaussian_kernel, gaussian_blur
 
@@ -219,8 +219,23 @@ def get_stimuli_paths(stimuli_folder = None):
 
 
 
-def load_psychophysics(batch_size = 64):
-    synmap,labels,revmap = get_synset()
+def load_psychophysics():
+    """
+    Loads the psychophysics dataset.
+
+
+    Parameters
+    ----------
+    batch_size : int, optional
+        Batch size, by default 64
+
+    Returns
+    -------
+    dataset
+        A `tf.dataset` of the psychophysics dataset.
+        Each element contains a batch of (images, heatmaps, labels).
+    """
+    _,_,revmap = get_synset()
     dataset=[]
     stimuli = get_stimuli_paths()
     for im in stimuli:

@@ -1,6 +1,8 @@
 import re
-import os
 def get_synset():
+    """
+    Returns the synset of the imagenet dataset.
+    """
     synset = [
         "n01440764 tench, Tinca tinca",
         "n01443537 goldfish, Carassius auratus",
